@@ -1,0 +1,85 @@
+format = """
+$shlvl$status$username$hostname$directory$git_branch$git_status$git_commit$c$java$go$python$rust$zig$cmd_duration
+$character"""
+
+add_newline = true
+scan_timeout = 10
+
+continuation_prompt = "[\\(*'-'\\) < ](bold green)"
+
+[character]
+success_symbol = "[\\(*'-'\\) <](bold green)"
+error_symbol   = "[\\(*;-;\\) <](bold blue)"
+
+[shlvl]
+disabled = false
+format = "[ Lv.$shlvl ](bold white)"
+threshold = 2
+
+[status]
+style = "red"
+symbol = " "
+not_executable_symbol = "🚫"
+not_found_symbol = " "
+sigint_symbol = " "
+signal_symbol = " "
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[username]
+disabled = false
+show_always = true
+style_user = "bold green"
+style_root = "bold red"
+format = "[$user]($style) "
+
+[hostname]
+format = 'on [$hostname](bold green) '
+disabled = false
+ssh_only = true
+
+[directory]
+style = "bold blue"
+read_only_style = "white"
+fish_style_pwd_dir_length = 3
+format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
+truncation_length = 4 
+truncation_symbol = ".../"
+
+[git_status]
+conflicted = " "
+untracked  = "？"
+stashed    = " "
+modified   = " "
+staged     = " "
+renamed    = " "
+deleted    = "✘ "
+style = "bold yellow"
+ahead = "▲ ${count}"
+behind = "▼ ${count}"
+diverged = "▲ ${ahead_count} ▼ ${behind_count}"
+
+[git_branch]
+style = "bold underline purple"
+
+[cmd_duration]
+format = "took [ $duration](bold white)"
+
+[c]
+symbol = " "
+
+[java]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[zig]
+symbol = "⚡️ "
