@@ -1,0 +1,12 @@
+[core]
+    editor = nvim
+
+[user]
+    name = KantaTamura
+    email = tkanta496@gmail.com
+
+[color]
+    ui = auto
+
+[init]
+    defaultBranch = main
