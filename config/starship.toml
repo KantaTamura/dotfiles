@@ -44,7 +44,7 @@ style = "bold blue"
 read_only_style = "white"
 fish_style_pwd_dir_length = 3
 format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
-truncation_length = 4 
+truncation_length = 4
 truncation_symbol = ".../"
 
 [git_status]
@@ -68,18 +68,24 @@ format = "took [ $duration](bold white)"
 
 [c]
 symbol = " "
+format = "[$symbol($version(-$name) )]($style)"
 
 [java]
 symbol = " "
+format = "[${symbol}(${version} )]($style)"
 
 [golang]
 symbol = " "
+format = "[$symbol($version )]($style)"
 
 [python]
 symbol = " "
+format = "[${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
 
 [rust]
 symbol = " "
+format = "[$symbol($version )]($style)"
 
 [zig]
 symbol = "⚡️ "
+format = "[$symbol($version )]($style)"
