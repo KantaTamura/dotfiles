@@ -1,13 +1,18 @@
-local shell = require("shell")
-local fonts = require("fonts")
-local tabs  = require("tabs")
+local shell  = require("shell")
+local fonts  = require("fonts")
+local tabs   = require("tabs")
+local keys   = require("keys")
+local doms   = require("domains")
 
 local config = {
-    warn_about_missing_glyphs = false,
+    color_scheme = "iceberg-dark",
+    warn_about_missing_glyphs = true,
     show_update_window = false,
     check_for_updates = false,
-    window_decorations = "RESIZE",
+    enable_scroll_bar = false,
+    window_background_opacity = 1.0,
     window_close_confirmation = "NeverPrompt",
+    default_gui_startup_args = { "connect", "main" },
     window_padding = {
         left = 4,
         right = 4,
@@ -15,23 +20,19 @@ local config = {
         bottom = 4,
     },
     window_frame = {
-        border_left_width = '0.5cell',
-        border_right_width = '0.5cell',
-        border_bottom_height = '0.25cell',
-        border_top_height = '0.25cell',
-        border_left_color = 'purple',
-        border_right_color = 'purple',
-        border_bottom_color = 'purple',
-        border_top_color = 'purple',
+        border_left_width    = "0.4cell",
+        border_right_width   = "0.4cell",
+        border_bottom_height = "0.4cell",
+        border_top_height    = "0.4cell",
+        border_left_color    = "#161821",
+        border_right_color   = "#161821",
+        border_bottom_color  = "#161821",
+        border_top_color     = "#161821",
     },
-    initial_cols = 110,
-    initial_rows = 25,
     inactive_pane_hsb = {
-        saturation = 1.0,
-        brightness = 0.90,
+        saturation = 0.9,
+        brightness = 0.8,
     },
-    enable_scroll_bar = false,
-    window_background_opacity = 1.0,
     hyperlink_rules = {
         {
             regex = "\\b\\w+://[\\w.-]+:[0-9]{2,15}\\S*\\b",
@@ -58,12 +59,12 @@ local config = {
             format = "https://example.com/tasks/?t=$1",
         },
     },
-
-    color_scheme = "iceberg-dark",
 }
 
 shell.setup(config)
 fonts.setup(config)
 tabs.setup(config)
+keys.setup(config)
+doms.setup(config)
 
 return config

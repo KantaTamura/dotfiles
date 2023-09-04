@@ -9,6 +9,13 @@ function Shell.setup(config)
     elseif wezterm.target_triple == "x86_64-unknown-linux-gnu" then
         config.default_prog = { "fish" }
     end
+
+    config.launch_menu = {
+        {
+            label = "btm",
+            args = { "btm" },
+        },
+    }
 end
 
 return Shell
