@@ -1,0 +1,12 @@
+{
+    "diagnostics.globals": [
+        "vim"
+    ],
+    "workspace.library": [
+        "$LUA_FILE/share/nvim/runtime/lua",
+        "./lua"
+    ],
+    "diagnostics.disable": [
+        "unused-local"
+    ]
+}
