@@ -1,9 +1,18 @@
 format = """
-$shlvl$status$username$hostname$directory$git_branch$git_status$git_commit$c$java$go$python$rust$zig$cmd_duration
+$shlvl\
+$status\
+[](fg:base bg:none)$username$hostname[](fg:base bg:none) \
+$directory\
+$git_branch\
+$git_status\
+$git_commit\
+$c$java$golang$python$rust$zig\
+$cmd_duration
 $character"""
 
 add_newline = true
-scan_timeout = 10
+scan_timeout = 30
+palette = "iceberg"
 
 continuation_prompt = "[\\(*'-'\\) < ](bold green)"
 
@@ -12,42 +21,45 @@ success_symbol = "[\\(*'-'\\) <](bold green)"
 error_symbol   = "[\\(*;-;\\) <](bold blue)"
 
 [shlvl]
-disabled = false
-format = "[ Lv.$shlvl ](bold white)"
+disabled  = true
+format    = "[ Lv.$shlvl ](bold white)"
 threshold = 2
 
 [status]
+disabled = false
 style = "red"
 symbol = " "
 not_executable_symbol = "🚫"
 not_found_symbol = " "
 sigint_symbol = " "
 signal_symbol = " "
-format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+format = "[](fg:base bg:none)[$symbol $common_meaning$signal_name$maybe_int](fg:$style bg:base)[](fg:base bg:none) "
 map_symbol = true
-disabled = false
 
 [username]
-disabled = false
+disabled    = false
 show_always = true
-style_user = "bold green"
-style_root = "bold red"
-format = "[$user]($style) "
+style_user  = "bold green"
+style_root  = "bold red"
+format      = "[$user](fg:$style bg:base)"
 
 [hostname]
-format = 'on [$hostname](bold green) '
 disabled = false
+style    = "bold green"
+format   = "[ on ](fg:light_gray bg:base)[$hostname](fg:$style bg:base)"
 ssh_only = true
 
 [directory]
 style = "bold blue"
-read_only_style = "white"
-fish_style_pwd_dir_length = 3
-format = "[$read_only]($read_only_style)[  ]($style)[$path]($style) "
+read_only = "󰌆 "
+read_only_style = "yellow"
+format = "[](fg:base bg:none)[$read_only](fg:$read_only_style bg:base)[  ](fg:$style bg:base)[$path](fg:$style bg:base)[](fg:base bg:none) "
 truncation_length = 4
-truncation_symbol = ".../"
+truncation_symbol = "…/"
+fish_style_pwd_dir_length = 3
 
 [git_status]
+up_to_date = " "
 conflicted = " "
 untracked  = "？"
 stashed    = " "
@@ -55,37 +67,65 @@ modified   = " "
 staged     = " "
 renamed    = " "
 deleted    = "✘ "
-style = "bold yellow"
-ahead = "▲ ${count}"
-behind = "▼ ${count}"
-diverged = "▲ ${ahead_count} ▼ ${behind_count}"
+style      = "bold yellow"
+ahead      = "▲ ${count}"
+behind     = "▼ ${count}"
+diverged   = "▲ ${ahead_count} ▼ ${behind_count}"
+format     = "[](fg:base bg:none)[$all_status$ahead_behind](fg:$style bg:base)[](fg:base bg:none) "
 
 [git_branch]
-style = "bold underline purple"
+style  = "bold underline purple"
+format = "[](fg:base bg:none)[$symbol$branch(:$remote_branch)](fg:$style bg:base)[](fg:base bg:none) "
 
 [cmd_duration]
-format = "took [ $duration](bold white)"
+style  = "white"
+format = "[](fg:base bg:none)[ $duration](fg:$style bg:base)[](fg:base bg:none) "
 
 [c]
+style  = "bold green"
 symbol = " "
-format = "[$symbol($version(-$name) )]($style)"
+format = "[](fg:base bg:none)[$symbol($version(-$name))](fg:$style bg:base)[](fg:base bg:none) "
 
 [java]
+style  = "bold green"
 symbol = " "
-format = "[${symbol}(${version} )]($style)"
+format = "[](fg:base bg:none)[${symbol}(${version})](fg:$style bg:base)[](fg:base bg:none) "
 
 [golang]
+style  = "bold green"
 symbol = " "
-format = "[$symbol($version )]($style)"
+format = "[](fg:base bg:none)[$symbol($version)](fg:$style bg:base)[](fg:base bg:none) "
 
 [python]
+style  = "bold green"
 symbol = " "
-format = "[${symbol}${pyenv_prefix}(${version} )(\\($virtualenv\\) )]($style)"
+format = "[](fg:base bg:none)[${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\) )](fg:$style bg:base)[](fg:base bg:none) "
 
 [rust]
+style  = "bold green"
 symbol = " "
-format = "[$symbol($version )]($style)"
+format = "[](fg:base bg:none)[$symbol($version)](fg:$style bg:base)[](fg:base bg:none) "
 
 [zig]
-symbol = "⚡️ "
-format = "[$symbol($version )]($style)"
+style  = "bold green"
+symbol = " "
+format = "[](fg:base bg:none)[$symbol($version)](fg:$style bg:base)[](fg:base bg:none) "
+
+[palettes.iceberg]
+black        = "#1e2132"
+dark_gray    = "#6b7089"
+red          = "#e27878"
+light_red    = "#e98989"
+green        = "#b4be82"
+light_green  = "#c0ca8e"
+brown        = "#e2a478"
+yellow       = "#e9b189"
+blue         = "#84a0c6"
+light_blue   = "#91acd1"
+purple       = "#a093c7"
+light_purple = "#ada0d3"
+cyan         = "#89b8c2"
+light_cyan   = "#95c4ce"
+light_gray   = "#c6c8d1"
+white        = "#d2d4de"
+base         = "#2f3347"
