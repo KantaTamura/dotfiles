@@ -2,7 +2,7 @@ return {
     {
         'akinsho/toggleterm.nvim',
         keys = {
-            { "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", desc = "open [L]azygit" },
+            { "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", desc = "open [L]azygit" },
         },
         opts = {
             autochdir = true,
