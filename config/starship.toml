@@ -73,6 +73,10 @@ behind     = "▼ ${count}"
 diverged   = "▲ ${ahead_count} ▼ ${behind_count}"
 format     = "[](fg:base bg:none)[$all_status$ahead_behind](fg:$style bg:base)[](fg:base bg:none) "
 
+[git_commit]
+tag_symbol = " "
+format = "[](fg:base bg:none)[($hash$tag)](fg:$style bg:base)[](fg:base bg:none) "
+
 [git_branch]
 style  = "bold underline purple"
 format = "[](fg:base bg:none)[$symbol$branch(:$remote_branch)](fg:$style bg:base)[](fg:base bg:none) "
