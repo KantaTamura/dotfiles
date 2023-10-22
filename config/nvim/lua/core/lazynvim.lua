@@ -16,6 +16,7 @@ local lazyOpts = {
     defaults = {
         lazy = true,
     },
+    install = { colorscheme = { "iceberg" } },
     performance = {
         cache = {
             enabled = true,
