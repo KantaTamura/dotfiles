@@ -1,8 +1,8 @@
-if vim.g.vscode then
-    require('core/vscode')
+if not vim.g.vscode then
+    require("core/keymaps")
+    require("core/autocmd")
+    require("core/lazynvim")
+    require("core/options")
 else
-    require('core/keymaps')
-    require('core/autocmd')
-    require('core/lazynvim')
-    require('core/options')
+    require("core/vscode")
 end

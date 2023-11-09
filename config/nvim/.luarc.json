@@ -3,8 +3,7 @@
         "vim"
     ],
     "workspace.library": [
-        "C:/Scoop/apps/neovim/current/share/nvim/runtime/lua",
-        "C:/Users/Kanta/.local/share/nvim-data/lazy",
+        "$LUA_FILE/share/nvim/runtime/lua",
         "./lua"
     ],
     "diagnostics.disable": [
