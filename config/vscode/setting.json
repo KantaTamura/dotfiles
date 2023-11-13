@@ -1,0 +1,79 @@
+{
+    /* setting for editor */
+    "editor.codeLensFontFamily": "PlemolJP Console NF",
+    "editor.lineHeight": 22,
+    /// cursor
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSurroundingLines": 4,
+    "editor.cursorWidth": 2,
+    /// fonts
+    "editor.fontFamily": "'PlemolJP Console NF', 'Fira Code Nerd Font'",
+    "editor.fontSize": 20,
+    "editor.fontWeight": "450",
+    "editor.fontLigatures": true,
+    /// format
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    /// diff editor
+    "diffEditor.codeLens": true,
+    /// minimap
+    "editor.minimap.side": "left",
+    /// suggest
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.suggest.showKeywords": false,
+    "editor.suggest.showWords": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    /// files
+    "files.autoSave": "afterDelay",
+    "files.enableTrash": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/build/**": true
+    },
+    /* workbench */
+    "workbench.layoutControl.enabled": false,
+    "workbench.startupEditor": "none",
+    /// appearance
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.sideBar.location": "right",
+    /* window */
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+    "window.newWindowDimensions": "inherit",
+    /* function */
+    "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.fontSize": 18,
+    /* extension */
+    /// catppuccin
+    "catppuccin.accentColor": "lavender",
+    /// C/C++
+    "C_Cpp.default.compilerPath": "C:/Users/Kanta/scoop/apps/llvm-mingw/current/bin/clang.exe",
+    "C_Cpp.default.intelliSenseMode": "windows-clang-x64",
+    "C_Cpp.default.includePath": [
+        "C:\\Program Files (x86)\\Arduino\\libraries",
+        "C:\\Program Files (x86)\\Arduino\\hardware",
+        "C:\\Program Files (x86)\\Arduino\\tools"
+    ],
+    "C_Cpp.workspaceParsingPriority": "medium",
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4 }",
+    "C_Cpp.files.exclude": {
+        "**/build/**": true,
+        "**/tmp*/**": true,
+        "**/.vscode": true,
+        "**/.vs": true
+    },
+    "C_Cpp.loggingLevel": "Debug",
+    /// remote SSH
+    "remote.SSH.remotePlatform": {
+        "arch": "linux",
+        "tofino": "linux"
+    },
+    /// git
+    "git.alwaysSignOff": true,
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    /* wip */
+}

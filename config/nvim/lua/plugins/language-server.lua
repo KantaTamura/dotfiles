@@ -81,7 +81,7 @@ return {
             { "nvim-lua/plenary.nvim" },
 
             -- null-ls
-            { "jose-elias-alvarez/null-ls.nvim" },
+            { "nvimtools/none-ls.nvim" },
             { "jay-babu/mason-null-ls.nvim" },
         },
         config = function()
@@ -162,6 +162,7 @@ return {
                         -- 起動時に設定ファイル読み込み
                         extra_args = { "--config", "~/.config/cspell/cspell.json" },
                     }),
+                    null_ls.builtins.formatting.clang_format,
                 }
             })
             -- See mason-null-ls.nvim"s documentation for more details:
@@ -171,6 +172,7 @@ return {
                     "stylua",
                     "gofumpt",
                     "golangci_lint",
+                    "clang-format",
                 },
                 automatic_installation = true,
             })
