@@ -19,6 +19,7 @@ local ascii = {
         [[/.,'`     `'.\]],
     },
 }
+
 local function button(sc, txt, keybind)
     local sc_ = sc:gsub("%s", ""):gsub("SPC", "<leader>")
     local opts = {
@@ -46,13 +47,19 @@ local function button(sc, txt, keybind)
 end
 
 return {
-    -- start menu
+    -- ┌──────────────────────────────────────────────────┐
+    -- │  start menu                                      │
+    -- └──────────────────────────────────────────────────┘
+
+    -- alpha
     -- ref. https://github.com/goolord/alpha-nvim
     {
         "goolord/alpha-nvim",
         event = "VimEnter",
         cond = true,
-        -- dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
         config = function()
             local status, alpha = pcall(require, "alpha")
             if not status then
@@ -151,18 +158,27 @@ return {
             })
         end
     },
-    -- buffer linue
+
+    -- ┌──────────────────────────────────────────────────┐
+    -- │  tab, buffer line                                │
+    -- └──────────────────────────────────────────────────┘
+
+    -- bufferlinu
     -- ref. https://github.com/akinsho/bufferline.nvim
     {
         "akinsho/bufferline.nvim",
-        dependencies = "nvim-tree/nvim-web-devicons",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "catppuccin/nvim",
+        },
         event = { "BufReadPre", "BufNewFile" },
-        cond = false,
+        cond = true,
         config = function()
             vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
             vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
             local bufferline = require("bufferline")
             require("bufferline").setup {
+                highlights = require("catppuccin.groups.integrations.bufferline").get(),
                 options = {
                     -- mode = "tabs",
                     style_preset = bufferline.style_preset.minimal,
@@ -173,36 +189,25 @@ return {
                     diagnostics = "nvim_lsp",
                 },
             }
-        end
+        end,
     },
-    -- status line
+
+    -- ┌──────────────────────────────────────────────────┐
+    -- │  status line                                     │
+    -- └──────────────────────────────────────────────────┘
+
+    -- lualine
     -- ref. https://github.com/nvim-lualine/lualine.nvim
     {
-        -- See `:help lualine.txt`
-        -- Set lualine as statusline
         "nvim-lualine/lualine.nvim",
+        dependencies = {
+            "catppuccin/nvim",
+        },
         event = "VimEnter",
+        cond = true,
         config = function()
-            -- Eviline config for lualine
-            -- Author: shadmansaleh
-            -- Credit: glepnir
             local lualine = require("lualine")
-
-            -- Color table for highlights
-            -- stylua: ignore
-            local colors = {
-                bg       = "#202328",
-                fg       = "#bbc2cf",
-                yellow   = "#ECBE7B",
-                cyan     = "#008080",
-                darkblue = "#081633",
-                green    = "#98be65",
-                orange   = "#FF8800",
-                violet   = "#a9a1e1",
-                magenta  = "#c678dd",
-                blue     = "#51afef",
-                red      = "#ec5f67",
-            }
+            local colors = require("catppuccin.palettes").get_palette("mocha")
 
             local conditions = {
                 buffer_not_empty = function()
@@ -224,13 +229,7 @@ return {
                     -- Disable sections and component separators
                     component_separators = "",
                     section_separators = "",
-                    theme = {
-                        -- We are going to use lualine_c an lualine_x as left and
-                        -- right section. Both are highlighted by c theme .  So we
-                        -- are just setting default looks o statusline
-                        normal = { c = { fg = colors.fg, bg = colors.bg } },
-                        inactive = { c = { fg = colors.fg, bg = colors.bg } },
-                    },
+                    theme = "catppuccin",
                 },
                 sections = {
                     -- these are to remove the defaults
@@ -267,7 +266,7 @@ return {
                 function()
                     return "▊"
                 end,
-                color = { fg = colors.blue }, -- Sets highlighting of component
+                color = { fg = colors.blue },      -- Sets highlighting of component
                 padding = { left = 0, right = 1 }, -- We don"t need space before this
             }
 
@@ -308,7 +307,7 @@ return {
             ins_left {
                 "filename",
                 file_status = true, -- displays file status (readonly status, modified status)
-                path = 1,     -- 0 = just filename, 1 = relative path, 2 = absolute path
+                path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
                 color = { gui = "bold" },
             }
 
@@ -373,7 +372,7 @@ return {
             }
 
             ins_right {
-                "o:encoding", -- option component same as &encoding in viml
+                "o:encoding",       -- option component same as &encoding in viml
                 fmt = string.upper, -- I"m not sure why it"s upper case either ;)
                 cond = conditions.hide_in_width,
                 color = { fg = colors.green, gui = "bold" },
@@ -398,14 +397,58 @@ return {
             lualine.setup(config)
         end
     },
-    -- color scheme
+
+    -- ┌──────────────────────────────────────────────────┐
+    -- │  color scheme                                    │
+    -- └──────────────────────────────────────────────────┘
+
+    -- iceberg
     -- ref. https://github.com/cocopon/iceberg.vim
     {
         "cocopon/iceberg.vim",
         event = "VimEnter",
+        cond = false,
+        config = function()
+            vim.cmd.colorscheme("iceberg")
+        end,
+    },
+    -- iceberg-tokyo
+    -- ref. https://codeberg.org/miyakogi/iceberg-tokyo.nvim
+    {
+        url = "https://codeberg.org/miyakogi/iceberg-tokyo.nvim",
+        event = "VimEnter",
+        cond = false,
+        config = function()
+            vim.cmd.colorscheme("iceberg-tokyo")
+        end,
+    },
+    -- tokyonight
+    -- ref. https://github.com/folke/tokyonight.nvim
+    {
+        "folke/tokyonight.nvim",
+        event = "VimEnter",
+        cond = false,
+        config = function()
+            require("tokyonight").setup({
+                style = "night",
+            })
+            vim.cmd.colorscheme("tokyonight")
+        end,
+    },
+    -- catpuccin
+    -- ref. https://github.com/catppuccin/nvim
+    {
+        "catppuccin/nvim",
+        event = "VimEnter",
         cond = true,
         config = function()
-            vim.cmd.colorscheme "iceberg"
+            require("catppuccin").setup({
+                flavour = "mocha",
+                integrations = {
+                    alpha = true,
+                }
+            })
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
 }

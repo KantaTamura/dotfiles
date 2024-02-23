@@ -26,5 +26,8 @@ return {
         "echasnovski/mini.pairs",
         version = "*",
         event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require('mini.pairs').setup()
+        end
     }
 }
