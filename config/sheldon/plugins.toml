@@ -1,0 +1,27 @@
+[templates]
+defer = "{% for file in files %}zsh-defer -t 0.0001 source \"{{ file }}\"\n{% endfor %}"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+hooks.post = '''
+zsh-defer source $XDG_CONFIG_HOME/zsh/config_lazy.zsh
+zsh-defer -t 0.001 autoload -Uz compinit
+zsh-defer -t 0.001 compinit
+'''
+
+[plugins.autopair]
+github = "hlissner/zsh-autopair"
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = 'zsh-users/zsh-completions'
+apply = ["defer"]
+
+[plugins.fzf-tab]
+github = 'Aloxaf/fzf-tab'
+use = ['fzf-tab.zsh']
+apply = ["defer"]
+
+[plugins.syntax-highlight]
+github = 'zdharma/fast-syntax-highlighting'
+apply = ["defer"]
