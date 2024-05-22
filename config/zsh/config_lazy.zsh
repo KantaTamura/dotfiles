@@ -13,11 +13,19 @@ function fzf-select-history() {
 zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
-# alias
+# eza
 if command -v eza &> /dev/null; then
-  alias ls='eza --classify --icons'
-  alias l='eza --all --classify --icons'
-  alias ll='eza --all --long --classify --icons'
-  alias lt='eza --all --tree --classify --icons'
+    alias ls='eza --classify --icons'
+    alias l='eza --all --classify --icons'
+    alias ll='eza --all --long --classify --icons'
+    alias lt='eza --all --tree --classify --icons'
 fi
 
+# bat
+if command -v bat &> /dev/null; then
+    alias cat='bat'
+fi
+
+# clear
+alias cls='clear'
+alias c='clear'

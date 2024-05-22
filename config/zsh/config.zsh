@@ -31,4 +31,12 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 
-eval "$(starship init zsh)"
+# starship
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
+
+# zoxide
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
