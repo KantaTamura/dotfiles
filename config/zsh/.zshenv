@@ -10,6 +10,7 @@ export EDITOR=nvim
 # rust
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export PATH=$XDG_DATA_HOME/cargo/bin:$PATH
 
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
