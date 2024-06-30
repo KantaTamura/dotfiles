@@ -1,7 +1,7 @@
-local shell  = require("shell")
 local fonts  = require("fonts")
-local tabs   = require("tabs")
 local keys   = require("keys")
+local tabs   = require("tabs")
+local shell  = require("shell")
 local doms   = require("domains")
 
 local config = {
@@ -12,7 +12,7 @@ local config = {
     enable_scroll_bar = false,
     window_background_opacity = 1.0,
     window_close_confirmation = "NeverPrompt",
-    default_gui_startup_args = { "connect", "main" },
+    audible_bell = "Disabled",
     window_padding = {
         left = 4,
         right = 4,
@@ -61,10 +61,10 @@ local config = {
     },
 }
 
-shell.setup(config)
 fonts.setup(config)
-tabs.setup(config)
 keys.setup(config)
+tabs.setup(config)
+shell.setup(config)
 doms.setup(config)
 
 return config

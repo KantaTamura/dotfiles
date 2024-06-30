@@ -1,14 +1,14 @@
 local wezterm = require("wezterm")
 local mux     = wezterm.mux
 
-local Tabs    = {}
-local Right   = {}
+local Tabs = {}
+local Right = {}
 
 -- wezterm format items
 -- ref. https://wezfurlong.org/wezterm/config/lua/wezterm/format.html
-Right.cells   = {}
+Right.cells = {}
 
-Right.colors  = {
+Right.colors = {
     background = "#1e2132",
     time_bg = "#2e3244",
     time_fg = "#c6c8d1",
@@ -41,9 +41,9 @@ function Right.set_battery()
     local discharging_icons = { "󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" }
     local charging_icons    = { "󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅" }
 
-    local charge            = "?"
-    local icon              = "󰂑"
-    local is_note           = false
+    local charge  = "?"
+    local icon    = "󰂑"
+    local is_note = false
 
     local function battery_stage(battery)
         if battery >= 1.0 then
@@ -141,7 +141,7 @@ function Tabs.setup(config)
         function(window, pane)
             Right.cells = {}
             Right.set_date()
-            Right.set_battery()
+            -- Right.set_battery()
 
             window:set_right_status(wezterm.format(Right.cells))
 
