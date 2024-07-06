@@ -6,7 +6,7 @@ $directory\
 $git_branch\
 $git_status\
 $git_commit\
-$c$java$golang$python$rust$zig\
+$fill$c$java$golang$python$rust$zig\
 $cmd_duration
 $character"""
 
@@ -81,9 +81,13 @@ format = "[](fg:base bg:none)[($hash$tag)](fg:$style bg:base)[](fg:base bg
 style  = "bold underline purple"
 format = "[](fg:base bg:none)[$symbol$branch(:$remote_branch)](fg:$style bg:base)[](fg:base bg:none) "
 
+[fill]
+symbol = " "
+
 [cmd_duration]
 style  = "white"
 format = "[](fg:base bg:none)[ $duration](fg:$style bg:base)[](fg:base bg:none) "
+min_time = 1
 
 [c]
 style  = "bold green"
@@ -132,4 +136,4 @@ cyan         = "#89b8c2"
 light_cyan   = "#95c4ce"
 light_gray   = "#c6c8d1"
 white        = "#d2d4de"
-base         = "#2f3347"
+base         = "#1c1f2f"
