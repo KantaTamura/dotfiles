@@ -1,0 +1,25 @@
+[user]
+	name = KantaTamura
+	email = tkanta496@gmail.com
+
+[color]
+    ui = auto
+
+[init]
+    defaultBranch = main
+
+[core]
+    editor = nvim
+    pager = delta
+
+[pull]
+    rebase = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[credential "https://github.com"]
+    helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
