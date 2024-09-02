@@ -1,3 +1,5 @@
+if vim.loader then vim.loader.enable() end
+
 require("core/keymaps")
 require("core/autocmd")
 require("core/lazynvim")

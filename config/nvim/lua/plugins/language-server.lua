@@ -93,7 +93,8 @@ return {
                 "marksman",
                 "lua_ls",
                 "rust_analyzer",
-                "zls"
+                "zls",
+                "eslint",
             })
 
             lsp.set_sign_icons({
@@ -153,15 +154,15 @@ return {
                     -- Replace these with the tools you have installed
                     -- make sure the source name is supported by null-ls
                     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-                    null_ls.builtins.diagnostics.cspell.with({
-                        method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-                        diagnostics_postprocess = function(diagnostic)
-                            -- レベルをWARNに変更（デフォルトはERROR）
-                            diagnostic.severity = vim.diagnostic.severity["WARN"]
-                        end,
-                        -- 起動時に設定ファイル読み込み
-                        extra_args = { "--config", "~/.config/cspell/cspell.json" },
-                    }),
+                    -- null_ls.builtins.diagnostics.cspell.with({
+                    --     method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+                    --     diagnostics_postprocess = function(diagnostic)
+                    --         -- レベルをWARNに変更（デフォルトはERROR）
+                    --         diagnostic.severity = vim.diagnostic.severity["WARN"]
+                    --     end,
+                    --     -- 起動時に設定ファイル読み込み
+                    --     extra_args = { "--config", "~/.config/cspell/cspell.json" },
+                    -- }),
                     null_ls.builtins.formatting.clang_format,
                 }
             })
@@ -173,6 +174,8 @@ return {
                     "gofumpt",
                     "golangci_lint",
                     "clang-format",
+                    -- "cspell",
+                    "prettier",
                 },
                 automatic_installation = true,
             })
