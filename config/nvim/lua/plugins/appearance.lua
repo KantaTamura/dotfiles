@@ -367,6 +367,10 @@ return {
             }
 
             ins_right {
+                "location",
+            }
+
+            ins_right {
                 -- filesize component
                 "filesize",
                 cond = conditions.buffer_not_empty,
