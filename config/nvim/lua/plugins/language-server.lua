@@ -95,6 +95,7 @@ return {
                 "rust_analyzer",
                 "zls",
                 "eslint",
+                "tsserver",
             })
 
             lsp.set_sign_icons({
@@ -142,6 +143,17 @@ return {
                         --   unusedparams = true,
                         -- },
                         -- staticcheck = true,
+                    },
+                }
+            })
+
+            require("lspconfig").tsserver.setup({
+                settings = {
+                    javascript = {
+                        preferGoToSourceDefinition = true,
+                    },
+                    typescript = {
+                        preferGoToSourceDefinition = true,
                     },
                 }
             })

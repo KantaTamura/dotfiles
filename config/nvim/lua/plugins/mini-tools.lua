@@ -1,5 +1,10 @@
 return {
     {
+        "echasnovski/mini.ai",
+        version = "*",
+        event = { "BufReadPre", "BufNewFile" },
+    },
+    {
         "echasnovski/mini.indentscope",
         version = "*",
         event = { "BufReadPre", "BufNewFile" },
