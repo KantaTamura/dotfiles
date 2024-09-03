@@ -230,6 +230,7 @@ return {
                     component_separators = "",
                     section_separators = "",
                     theme = "catppuccin",
+                    disabled_filetypes = { "NVimTree" },
                 },
                 sections = {
                     -- these are to remove the defaults
