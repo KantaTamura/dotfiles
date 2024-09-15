@@ -96,6 +96,7 @@ return {
                 "zls",
                 "eslint",
                 "tsserver",
+                "graphql",
             })
 
             lsp.set_sign_icons({
