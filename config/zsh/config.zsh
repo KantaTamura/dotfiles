@@ -32,18 +32,25 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 
 # make & use starship script cache
-starship_cache="$XDG_CONFIG_HOME/zsh/starship.zsh"
-starship_toml="$XDG_CONFIG_HOME/starship.toml"
-if [[ ! -r "$starship_cache" || "$starship_toml" -nt "$starship_cache" ]]; then
-    starship init zsh > $starship_cache
+if command -v starship &> /dev/null; then
+    # starship setting
+    starship_cache="$XDG_CONFIG_HOME/zsh/starship.zsh"
+    starship_toml="$XDG_CONFIG_HOME/starship.toml"
+    if [[ ! -r "$starship_cache" || "$starship_toml" -nt "$starship_cache" ]]; then
+        starship init zsh > $starship_cache
+    fi
+    source "$starship_cache"
+    unset starship_cache starship_toml
+    # starship transient prompt
+    source $XDG_CONFIG_HOME/zsh/transient_prompt.zsh
 fi
-source "$starship_cache"
-unset starship_cache starship_toml
 
 # make & use zoxide script cache
-zoxide_cache="$XDG_CONFIG_HOME/zsh/zoxide.zsh"
-if [[ ! -r "$zoxide_cache" ]]; then
-    zoxide init zsh > $zoxide_cache
+if command -v zoxide &> /dev/null; then
+    zoxide_cache="$XDG_CONFIG_HOME/zsh/zoxide.zsh"
+    if [[ ! -r "$zoxide_cache" ]]; then
+        zoxide init zsh > $zoxide_cache
+    fi
+    source "$zoxide_cache"
+    unset zoxide_cache
 fi
-source "$zoxide_cache"
-unset zoxide_cache
