@@ -1,3 +1,5 @@
+shell = "zsh"
+
 [templates]
 defer = "{% for file in files %}zsh-defer -t 0.0001 source \"{{ file }}\"\n{% endfor %}"
 
