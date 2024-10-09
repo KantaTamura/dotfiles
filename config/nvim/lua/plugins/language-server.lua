@@ -94,8 +94,6 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "zls",
-                "eslint",
-                "tsserver",
                 "graphql",
             })
 
@@ -144,17 +142,6 @@ return {
                         --   unusedparams = true,
                         -- },
                         -- staticcheck = true,
-                    },
-                }
-            })
-
-            require("lspconfig").tsserver.setup({
-                settings = {
-                    javascript = {
-                        preferGoToSourceDefinition = true,
-                    },
-                    typescript = {
-                        preferGoToSourceDefinition = true,
                     },
                 }
             })
