@@ -14,6 +14,7 @@ export PATH=$XDG_DATA_HOME/cargo/bin:$PATH
 
 # go
 export GOPATH=$XDG_DATA_HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
