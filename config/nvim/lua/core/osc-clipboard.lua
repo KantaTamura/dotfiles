@@ -1,14 +1,7 @@
-vim.cmd([[
-let g:clipboard = {
-  \   'name': 'osc-copy',
-  \   'copy': {
-  \      '+': 'osc copy',
-  \      '*': 'osc copy',
-  \    },
-  \   'paste': {
-  \      '+': 'osc paste',
-  \      '*': 'osc paste',
-  \   },
-  \   'cache_enabled': 0,
-  \ }
-]])
+vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+        ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+        ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+}
