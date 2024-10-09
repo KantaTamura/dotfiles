@@ -11,4 +11,6 @@ end
 
 if vim.fn.has("wsl") == 1 then
     require("core/wsl-clipboard")
+else
+    require("core/osc-clipboard")
 end
