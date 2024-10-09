@@ -31,6 +31,11 @@ if command -v lazygit &> /dev/null; then
 	alias lg='lazygit'
 fi
 
+# fastfetch
+if command -v fastfetch &> /dev/null; then
+    alias ff='fastfetch'
+fi
+
 # clear
 alias cls='clear'
 alias c='clear'
