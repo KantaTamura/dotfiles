@@ -43,7 +43,7 @@ vim.opt.autoindent     = true
 vim.opt.breakindent    = true
 
 -- tab
-vim.opt.expandtab      = true
+vim.opt.expandtab      = false
 vim.opt.tabstop        = 4
 vim.opt.shiftwidth     = 4
 

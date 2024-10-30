@@ -5,9 +5,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
         vim.api.nvim_exec('silent! normal! g`"zv', false)
     end,
 })
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    buffer = buffer,
-    callback = function()
-        vim.lsp.buf.format { async = false }
-    end
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--     buffer = buffer,
+--     callback = function()
+--         vim.lsp.buf.format { async = false }
+--     end
+-- })
