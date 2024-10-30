@@ -36,6 +36,11 @@ if command -v fastfetch &> /dev/null; then
     alias ff='fastfetch'
 fi
 
+# bottom
+if command -v btm &> /dev/null; then
+	alias top='btm --basic'
+fi
+
 # clear
 alias cls='clear'
 alias c='clear'
