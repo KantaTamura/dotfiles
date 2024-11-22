@@ -14,6 +14,12 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 # go
 export GOPATH=$XDG_DATA_HOME/go
 
+# zig
+export ZVM_PATH=$XDG_DATA_HOME/zvm
+export ZVM_INSTALL=$ZVM_PATH/self
+export PATH=$ZVM_PATH/bin:$PATH
+export PATH=$ZVM_INSTALL:$PATH
+
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
