@@ -54,3 +54,6 @@ if command -v zoxide &> /dev/null; then
     source "$zoxide_cache"
     unset zoxide_cache
 fi
+
+# history per directory
+source $XDG_CONFIG_HOME/zsh/cwd_history.zsh

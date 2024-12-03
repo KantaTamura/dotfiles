@@ -23,11 +23,15 @@ apply = ["defer"]
 github = 'zsh-users/zsh-autosuggestions'
 apply = ["defer"]
 
+[plugins.syntax-highlight]
+github = 'zdharma/fast-syntax-highlighting'
+apply = ["defer"]
+
 [plugins.fzf-tab]
 github = 'Aloxaf/fzf-tab'
 use = ['fzf-tab.zsh']
 apply = ["defer"]
 
-[plugins.syntax-highlight]
-github = 'zdharma/fast-syntax-highlighting'
+[plugins.zsh-histdb]
+github = 'larkery/zsh-histdb'
 apply = ["defer"]
