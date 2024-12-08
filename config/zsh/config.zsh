@@ -26,6 +26,8 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[H" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[F" end-of-line
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
