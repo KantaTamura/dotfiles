@@ -44,3 +44,6 @@ fi
 # clear
 alias cls='clear'
 alias c='clear'
+
+# ip
+alias ip='ip --color=auto'
