@@ -13,7 +13,7 @@ setopt inc_append_history
 
 # no cd
 setopt auto_cd
-export cdpath=(~/workspace ~)
+export cdpath=(~ ~/workspace ~/.config)
 
 # no beep
 unsetopt beep
