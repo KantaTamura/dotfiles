@@ -1,0 +1,7 @@
+# local document
+# e.g. readme.local.md
+*.local.*
+
+# local directory
+# e.g. testdata.local
+*.local
