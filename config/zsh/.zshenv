@@ -23,6 +23,9 @@ export PATH=$ZVM_INSTALL:$PATH
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
+# sqlite
+export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history
+
 # less
 export LESSKEYIN=$XDG_CONFIG_HOME/less/lesskey
 
