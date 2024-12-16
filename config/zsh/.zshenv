@@ -20,11 +20,17 @@ export ZVM_INSTALL=$ZVM_PATH/self
 export PATH=$ZVM_PATH/bin:$PATH
 export PATH=$ZVM_INSTALL:$PATH
 
+# npm
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
 # sqlite
 export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history
+
+# dotnet
+export DOTNET_CLI_HOME=$XDG_DATA_HOME/dotnet
 
 # less
 export LESSKEYIN=$XDG_CONFIG_HOME/less/lesskey
