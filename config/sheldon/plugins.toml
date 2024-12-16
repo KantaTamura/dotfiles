@@ -35,3 +35,8 @@ apply = ["defer"]
 [plugins.zsh-histdb]
 github = 'larkery/zsh-histdb'
 apply = ["defer"]
+
+[plugins.fancy-ctrl-z]
+github = "mdumitru/fancy-ctrl-z"
+use = ["fancy-ctrl-z.zsh"]
+apply = ["defer"]

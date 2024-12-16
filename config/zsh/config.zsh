@@ -28,6 +28,7 @@ bindkey "^[[4~" end-of-line
 bindkey "^[[F" end-of-line
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
+bindkey '^Z' fancy-ctrl-z
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
