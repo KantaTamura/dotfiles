@@ -31,6 +31,7 @@ bindkey '^Z' fancy-ctrl-z
 
 bindkey "^J" history-beginning-search-forward
 bindkey "^K" history-beginning-search-backward
+bindkey "^H" backward-char
 bindkey "^L" forward-char
 
 autoload -Uz edit-command-line
