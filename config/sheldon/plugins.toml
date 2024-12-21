@@ -40,3 +40,7 @@ apply = ["defer"]
 github = "mdumitru/fancy-ctrl-z"
 use = ["fancy-ctrl-z.zsh"]
 apply = ["defer"]
+
+[plugins.zsh-vi-mode]
+github = "jeffreytse/zsh-vi-mode"
+apply = ["defer"]
