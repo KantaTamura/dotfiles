@@ -11,7 +11,7 @@ function fzf-select-history() {
     zle reset-prompt
 }
 zle -N fzf-select-history
-bindkey '^r' fzf-select-history
+bindkey "^R" fzf-select-history
 
 # eza
 if command -v eza &> /dev/null; then
