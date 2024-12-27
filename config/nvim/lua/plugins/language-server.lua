@@ -109,6 +109,9 @@ return {
 				"rust_analyzer",
 				"zls",
 				"graphql",
+				"nil_ls",
+				"ruff",
+				"clangd",
 			})
 
 			lsp.set_sign_icons({
@@ -136,6 +139,8 @@ return {
 					["lua_ls"] = { "lua" },
 					["rust_analyzer"] = { "rust" },
 					["zls"] = { "zig" },
+					["ruff"] = { "python" },
+					["clangd"] = { "c", "c++" }
 				}
 			})
 
