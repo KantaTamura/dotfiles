@@ -151,23 +151,4 @@ return {
 		dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
 		ft = { "markdown" }
 	},
-	{
-		"epwalsh/obsidian.nvim",
-		version = "*",
-		event = {
-			"BufReadPre " .. vim.fn.expand("~") .. "/notes/*.md",
-			"BufNewFile " .. vim.fn.expand("~") .. "/notes/*.md",
-		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {
-			workspaces = {
-				{
-					name = "notes",
-					path = "~/notes",
-				}
-			}
-		}
-	}
 }
