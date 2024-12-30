@@ -37,9 +37,9 @@ vim.keymap.set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, d
 
 -- open lazy
 vim.keymap.set({ "n" }, "<leader>l", function()
-    return require("lazy").home()
+	return require("lazy").home()
 end, { desc = "Open lazy" })
 
 -- format
 vim.keymap.set({ "n" }, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = false }<CR>",
-    { noremap = true, silent = true })
+	{ noremap = true, silent = true })
