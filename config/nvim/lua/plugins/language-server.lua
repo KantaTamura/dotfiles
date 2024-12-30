@@ -109,9 +109,9 @@ return {
 				"rust_analyzer",
 				"zls",
 				"graphql",
-				"nil_ls",
 				"ruff",
 				"clangd",
+				"cmake-language-server",
 			})
 
 			lsp.set_sign_icons({
@@ -140,7 +140,8 @@ return {
 					["rust_analyzer"] = { "rust" },
 					["zls"] = { "zig" },
 					["ruff"] = { "python" },
-					["clangd"] = { "c", "c++" }
+					["clangd"] = { "c", "c++" },
+					["cmake-language-server"] = { "cmake" },
 				}
 			})
 
@@ -186,6 +187,12 @@ return {
 							enable = true,
 						},
 					}
+				}
+			})
+
+			require("lspconfig").clangd.setup({
+				settings = {
+					cmd = { "clangd", "--background-index", "--clang-tidy" },
 				}
 			})
 
