@@ -50,16 +50,33 @@ return {
 	},
 	--
 	-- ref. https://github.com/github/copilot.vim
+	-- ref. https://github.com/zbirenbaum/copilot.lua
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
 		cond = function()
 			return not vim.g.vscode
+		end,
+		config = function()
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
 		end,
 		-- filetypes = {
 		--     markdown = true,
 		--     help = true,
 		-- },
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		event = { "InsertEnter", "LspAttach" },
+		dependencies = {
+			"zbirenbaum/copilot.lua",
+		},
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",

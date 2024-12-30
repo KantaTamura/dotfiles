@@ -37,6 +37,8 @@ return {
 		dependencies = {
 			{ "L3MON4D3/LuaSnip" },
 			{ "hrsh7th/cmp-path" },
+			{ "zbirenbaum/copilot.lua" },
+			{ "onsails/lspkind.nvim" },
 		},
 		config = function()
 			-- Here is where you configure the autocompletion settings.
@@ -48,8 +50,23 @@ return {
 			-- And you can configure cmp even more, if you want to.
 			local cmp = require("cmp")
 			local cmp_action = require("lsp-zero.cmp").action()
+			local lspkind = require('lspkind')
+
+			lspkind.init({
+				symbol_map = {
+					Copilot = "",
+				},
+			})
+
+			vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 			cmp.setup({
+				sources = {
+					{ name = "copilot",  group_index = 2 },
+					{ name = "nvim_lsp", group_index = 2 },
+					{ name = "luasnip",  group_index = 2 },
+					{ name = "path",     group_index = 2 },
+				},
 				window = {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
@@ -65,6 +82,11 @@ return {
 				},
 				formatting = {
 					fields = { "abbr", "kind", "menu" },
+					format = lspkind.cmp_format({
+						mode = "symbol",
+						max_width = 50,
+						symbol_map = { Copilot = "" }
+					})
 				},
 			})
 
@@ -111,7 +133,6 @@ return {
 				"graphql",
 				"ruff",
 				"clangd",
-				"cmake-language-server",
 			})
 
 			lsp.set_sign_icons({
@@ -141,7 +162,6 @@ return {
 					["zls"] = { "zig" },
 					["ruff"] = { "python" },
 					["clangd"] = { "c", "c++" },
-					["cmake-language-server"] = { "cmake" },
 				}
 			})
 
@@ -186,8 +206,12 @@ return {
 						procMacro = {
 							enable = true,
 						},
-					}
-				}
+						checkOnSave = {
+							command = "clippy",
+							extraArgs = { "--all", "--", "-W", "clippy::all" },
+						},
+					},
+				},
 			})
 
 			require("lspconfig").clangd.setup({
