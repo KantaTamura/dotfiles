@@ -1,9 +1,11 @@
 {
 	"clock#date": {
-		"format": "{:%Y / %m / %d}",
+		"timezone": "Asia/Tokyo",
+		"format": "{:L%Y / %m / %d}",
 		"interval": 43200,
 	},
 	"clock#time": {
+		"timezone": "Asia/Tokyo",
 		"format": "{:%OH<small><span color='#9399b2'>:</span></small>%OM}",
 		"interval": 60
 	},
