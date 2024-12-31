@@ -65,5 +65,3 @@ vim.opt.completeopt    = { 'menuone', 'noinsert' }
 -- split
 --  分割したウィンドウを右側に表示する
 vim.opt.splitright     = true
-
-vim.opt.conceallevel   = 2

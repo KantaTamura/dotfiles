@@ -30,5 +30,8 @@ return {
 		opts = {
 			scroll_sync = true,
 		},
+		config = function()
+			vim.opt.conceallevel = 2
+		end
 	},
 }
