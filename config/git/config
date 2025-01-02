@@ -1,6 +1,7 @@
 [user]
 	name = KantaTamura
 	email = tkanta496@gmail.com
+	signingkey = AECA9EF0875320B39429099FBBBAFFA279E3B91B
 
 [color]
     ui = auto
@@ -11,6 +12,12 @@
 [core]
     editor = nvim
     pager = delta
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgSign = true
 
 [fetch]
     prune = true
@@ -26,3 +33,6 @@
 
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
+
+[credential]
+	helper = store
