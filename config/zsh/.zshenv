@@ -23,6 +23,9 @@ export ZVM_INSTALL=$ZVM_PATH/self
 export PATH=$ZVM_PATH/bin:$PATH
 export PATH=$ZVM_INSTALL:$PATH
 
+# texlive
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+
 # npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 

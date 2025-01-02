@@ -13,9 +13,6 @@
     editor = nvim
     pager = delta
 
-[commit]
-	gpgsign = true
-
 [tag]
 	gpgSign = true
 
