@@ -50,3 +50,6 @@ alias ip='ip --color=auto'
 
 # wget
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+
+# sudo
+alias sudosu='sudo -E zsh'
