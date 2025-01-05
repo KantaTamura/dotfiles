@@ -12,7 +12,7 @@ _zsh_autosuggest_strategy_histdb() {
 				commands.argv LIKE '$(sql_escape $1)%' AND
 				places.dir = '$(sql_escape $PWD)'
 			GROUP BY commands.argv
-			ORDER BY history.start_time desc
+			ORDER BY MAX(history.start_time) DESC
 			LIMIT 1
 	")
 }
