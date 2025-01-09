@@ -133,6 +133,7 @@ return {
 				"graphql",
 				"ruff",
 				"clangd",
+				"texlab",
 			})
 
 			lsp.set_sign_icons({
@@ -162,6 +163,7 @@ return {
 					["zls"] = { "zig" },
 					["ruff"] = { "python" },
 					["clangd"] = { "c", "c++" },
+					["texlab"] = { "tex" },
 				}
 			})
 
