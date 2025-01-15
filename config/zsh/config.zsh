@@ -29,11 +29,6 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey '^Z' fancy-ctrl-z
 
-bindkey "^J" history-beginning-search-forward
-bindkey "^K" history-beginning-search-backward
-bindkey "^H" backward-char
-bindkey "^L" forward-char
-
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line

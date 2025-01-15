@@ -4,6 +4,12 @@ function mcd() {
     cd $1
 }
 
+# lazy keybindings
+bindkey "^J" history-beginning-search-forward
+bindkey "^K" history-beginning-search-backward
+bindkey "^H" backward-char
+bindkey "^L" forward-char
+
 # fzf history
 function fzf-select-history() {
     BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
