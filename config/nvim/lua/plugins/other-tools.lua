@@ -93,6 +93,37 @@ return {
 		},
 		-- See Commands section for default commands if you want to lazy load on them
 	},
+	{
+		"yetone/avante.nvim",
+		event = { "InsertEnter", "LspAttach" },
+		dependencies = {
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			"hrsh7th/nvim-cmp",
+			"nvim-tree/nvim-web-devicons",
+			"zbirenbaum/copilot.lua",
+		},
+		opts = {
+			provider = "copilot",
+			auto_suggestions_provider = "copilot",
+
+			behaviour = {
+				auto_suggestions = false,
+				auto_set_highlight_group = true,
+				auto_set_keymaps = true,
+				auto_apply_diff_after_generation = false,
+				support_paste_from_clipboard = false,
+				minimize_diff = true,
+			},
+
+			windows = {
+				position = "right",
+				wrap = true,
+				width = 30,
+			},
+		},
+	},
 	--
 	-- ref. https://github.com/nvim-pack/nvim-spectre
 	{
