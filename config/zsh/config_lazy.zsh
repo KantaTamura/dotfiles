@@ -7,7 +7,7 @@ function mcd() {
 # lazy keybindings
 bindkey "^J" history-beginning-search-forward
 bindkey "^K" history-beginning-search-backward
-bindkey "^H" backward-char
+zsh-defer bindkey "^H" backward-char
 bindkey "^L" forward-char
 
 # fzf history
