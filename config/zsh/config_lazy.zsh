@@ -32,6 +32,11 @@ if command -v bat &> /dev/null; then
     alias cat='bat'
 fi
 
+# viu
+if command -v viu &> /dev/null; then
+	alias gcat='viu'
+fi
+
 # lazygit
 if command -v lazygit &> /dev/null; then
 	alias lg='lazygit'
