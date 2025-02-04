@@ -23,6 +23,11 @@ hyprctl dispatch togglespecialworkspace "monitor"
 hyprctl dispatch exec "footclient -e btop"
 sleep 2
 
+# "special:notes" workspace
+hyprctl dispatch togglespecialworkspace "notes"
+hyprctl dispatch exec obsidian
+sleep 2
+
 # "special:comms" workspace
 # - Slack
 # - Discord
