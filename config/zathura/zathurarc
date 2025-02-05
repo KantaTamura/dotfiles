@@ -29,3 +29,5 @@ set font monospace 12
 
 # include theme
 include themes/catppuccin-mocha
+
+set recolor "false"
