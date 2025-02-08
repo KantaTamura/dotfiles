@@ -1,7 +1,7 @@
 [user]
 	name = KantaTamura
 	email = tkanta496@gmail.com
-	signingkey = AECA9EF0875320B39429099FBBBAFFA279E3B91B
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICj1XLN1IL30Mm5T4VT6htUJTfKQpQ/Hx21kW+tBIqTq
 
 [color]
     ui = auto
@@ -12,6 +12,9 @@
 [core]
     editor = nvim
     pager = delta
+
+[commit]
+	gpgsign = true
 
 [tag]
 	gpgSign = true
@@ -24,6 +27,12 @@
 
 [merge]
     conflictstyle = zdiff3
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = "/opt/1Password/op-ssh-sign"
 
 [credential "https://github.com"]
     helper = !/usr/bin/gh auth git-credential
