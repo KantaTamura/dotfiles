@@ -80,6 +80,7 @@ return {
 					button("e", "  New", ":ene<CR>"),
 					button("b", "  Bookmarks", ":Telescope marks<CR>"),
 					button("c", "  Config", ":e $HOME/.config/nvim/init.lua | :cd %:p:h | :silent !pwd<CR>"),
+					button("n", "  Notes", ":e $HOME/notes/home.md | :cd %:p:h | :silent !pwd<CR>"),
 					button("q", "  Quit", ":qa<CR>"),
 				},
 				opts = {
@@ -163,7 +164,7 @@ return {
 	-- │  tab, buffer line                                │
 	-- └──────────────────────────────────────────────────┘
 
-	-- bufferlinu
+	-- bufferline
 	-- ref. https://github.com/akinsho/bufferline.nvim
 	{
 		"akinsho/bufferline.nvim",
@@ -176,6 +177,8 @@ return {
 		config = function()
 			vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
 			vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+			vim.keymap.set("n", "<leader>cr", "<Cmd>BufferLineCloseRight<CR>", {})
+			vim.keymap.set("n", "<leader>cl", "<Cmd>BufferLineCloseLeft<CR>", {})
 			local bufferline = require("bufferline")
 			require("bufferline").setup {
 				highlights = require("catppuccin.groups.integrations.bufferline").get(),
@@ -267,7 +270,7 @@ return {
 				function()
 					return "▊"
 				end,
-				color = { fg = colors.blue },      -- Sets highlighting of component
+				color = { fg = colors.blue }, -- Sets highlighting of component
 				padding = { left = 0, right = 1 }, -- We don"t need space before this
 			}
 
@@ -308,7 +311,7 @@ return {
 			ins_left {
 				"filename",
 				file_status = true, -- displays file status (readonly status, modified status)
-				path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
+				path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
 				color = { gui = "bold" },
 			}
 
@@ -377,7 +380,7 @@ return {
 			}
 
 			ins_right {
-				"o:encoding",       -- option component same as &encoding in viml
+				"o:encoding", -- option component same as &encoding in viml
 				fmt = string.upper, -- I"m not sure why it"s upper case either ;)
 				cond = conditions.hide_in_width,
 				color = { fg = colors.green, gui = "bold" },
