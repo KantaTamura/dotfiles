@@ -134,6 +134,7 @@ return {
 				"ruff",
 				"clangd",
 				"texlab",
+				"nil_ls",
 			})
 
 			lsp.set_sign_icons({
@@ -164,6 +165,7 @@ return {
 					["ruff"] = { "python" },
 					["clangd"] = { "c", "c++" },
 					["texlab"] = { "tex" },
+					["nil_ls"] = { "nix" },
 				}
 			})
 
@@ -220,6 +222,16 @@ return {
 				settings = {
 					cmd = { "clangd", "--background-index", "--clang-tidy" },
 				}
+			})
+
+			require("lspconfig").nil_ls.setup({
+				settings = {
+					['nil'] = {
+						formatting = {
+							command = { "nixfmt" },
+						},
+					},
+				},
 			})
 
 			lsp.setup()
