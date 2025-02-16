@@ -78,7 +78,7 @@ return {
 				val = {
 					button("f", "󰱼  Search", ":Telescope find_files<CR>"),
 					button("e", "  New", ":ene<CR>"),
-					button("b", "  Bookmarks", ":Telescope marks<CR>"),
+					button("b", "  Project", ":Telescope project<CR>"),
 					button("c", "  Config", ":e $HOME/.config/nvim/init.lua | :cd %:p:h | :silent !pwd<CR>"),
 					button("n", "  Notes", ":e $HOME/notes/home.md | :cd %:p:h | :silent !pwd<CR>"),
 					button("q", "  Quit", ":qa<CR>"),
