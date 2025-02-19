@@ -355,7 +355,7 @@ return {
 			keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
 			keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
-			keymap("n", "<Leader>t", "<cmd>Lspsaga term_toggle<CR>")
+			-- keymap("n", "<Leader>t", "<cmd>Lspsaga term_toggle<CR>")
 		end,
 	},
 	{

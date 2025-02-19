@@ -138,7 +138,8 @@ return {
 	{
 		'akinsho/toggleterm.nvim',
 		keys = {
-			{ "<leader>l", "<cmd>lua _lazygit_toggle()<CR>", desc = "open [L]azygit" },
+			{ "<leader>l", "<cmd>lua _lazygit_toggle()<CR>",        desc = "open [L]azygit" },
+			{ "<leader>t", "<cmd>lua _float_terminal_toggle()<CR>", desc = "open [T]erminal" },
 		},
 		opts = {
 			autochdir = true,
@@ -146,8 +147,13 @@ return {
 		config = function()
 			local Terminal = require("toggleterm.terminal").Terminal
 			local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", hidden = true })
+			local float_terminal = Terminal:new({ direction = "float", hidden = true })
 			function _lazygit_toggle()
 				lazygit:toggle()
+			end
+
+			function _float_terminal_toggle()
+				float_terminal:toggle()
 			end
 		end
 	},
