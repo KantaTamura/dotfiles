@@ -1,0 +1,7 @@
+theme = iceberg-dark
+
+font-family = "PlemolJP Console NF Medium"
+font-family-italic = "PlemolJP Console NF Medium Italic"
+font-family-bold = "PlemolJP Console NF Bold"
+font-family-bold-italic = "PlemolJP Console NF Bold Italic"
+font-size = 14
