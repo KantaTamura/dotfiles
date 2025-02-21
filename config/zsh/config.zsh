@@ -33,6 +33,11 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 
+# for MacOS
+if [[ "$(uname)" == "Darwin" ]] then
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # make & use starship script cache
 if command -v starship &> /dev/null; then
     # starship setting
