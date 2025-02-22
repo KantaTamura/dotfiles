@@ -33,6 +33,9 @@ export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 # npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
+# pnpm
+export PNPM_HOME=$XDG_DATA_HOME/pnpm
+
 # gunpg
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
@@ -48,5 +51,6 @@ export LESSHISTFILE=$XDG_STATE_HOME/less/history
 
 # path
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PNPM_HOME:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH=$XDG_DATA_HOME/cargo/bin:$PATH
