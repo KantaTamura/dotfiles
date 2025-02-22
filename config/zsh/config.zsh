@@ -73,3 +73,7 @@ fi
 if [ -z "$SSH_AUTH_SOCK" ]; then
 	eval $(ssh-agent -s) > /dev/null
 fi
+
+# fix duplicate PATH
+typeset -U path
+export PATH
