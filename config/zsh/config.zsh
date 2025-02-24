@@ -65,15 +65,6 @@ fi
 # history per directory
 source $XDG_CONFIG_HOME/zsh/cwd_history.zsh
 
-# ssh-agent
-if [[ "$SSH_AUTH_SOCK" == /run/user/*/ssh-agent.socket ]]; then
-    unset SSH_AUTH_SOCK
-fi
-
-if [ -z "$SSH_AUTH_SOCK" ]; then
-	eval $(ssh-agent -s) > /dev/null
-fi
-
 # fix duplicate PATH
 typeset -U path
 export PATH
