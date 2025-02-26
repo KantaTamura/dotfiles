@@ -36,6 +36,7 @@ bindkey '^xe' edit-command-line
 # for MacOS
 if [[ "$(uname)" == "Darwin" ]] then
 	eval "$(/opt/homebrew/bin/brew shellenv)"
+	export XDG_RUNTIME_DIR=/run/user/$UID
 fi
 
 # make & use starship script cache
