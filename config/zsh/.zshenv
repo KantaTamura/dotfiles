@@ -45,6 +45,9 @@ export DOTNET_CLI_HOME=$XDG_DATA_HOME/dotnet
 export LESSKEYIN=$XDG_CONFIG_HOME/less/lesskey
 export LESSHISTFILE=$XDG_STATE_HOME/less/history
 
+# cuda
+export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
+
 # path
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PNPM_HOME:$PATH
