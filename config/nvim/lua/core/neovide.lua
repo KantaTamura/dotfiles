@@ -1,5 +1,5 @@
 -- general config
-vim.opt.guifont = "PlemolJP Console NF:h14"
+vim.opt.guifont = "PlemolJP Console:h14"
 
 -- keybindings
 vim.api.nvim_set_keymap("v", "<sc-c>", '"+y', { noremap = true })      -- Select line(s) in visual mode and copy (CTRL+Shift+V)
