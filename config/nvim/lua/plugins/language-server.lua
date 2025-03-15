@@ -262,8 +262,10 @@ return {
 					"gofumpt",
 					"golangci_lint",
 					"clang-format",
-					-- "cspell",
 					"prettier",
+					"markdownlint-cli2",
+					"textlint",
+					"cspell",
 				},
 				automatic_installation = true,
 			})
