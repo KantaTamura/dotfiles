@@ -21,10 +21,10 @@ bindkey "^R" fzf-select-history
 
 # eza
 if command -v eza &> /dev/null; then
-    alias ls='eza --classify --icons'
-    alias l='eza --all --classify --icons'
-    alias ll='eza --all --long --group --classify --icons'
-    alias lt='eza --all --tree --group --classify --icons'
+    alias ls='eza --classify=auto --icons=always'
+    alias l='eza --all --classify=auto --icons=always'
+    alias ll='eza --all --long --group --classify=auto --icons=always'
+    alias lt='eza --all --tree --group --classify=auto --icons=always'
 fi
 
 # bat
