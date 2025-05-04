@@ -93,38 +93,51 @@ return {
 		},
 		-- See Commands section for default commands if you want to lazy load on them
 	},
-	{
-		"yetone/avante.nvim",
-		event = { "InsertEnter", "LspAttach" },
-		dependencies = {
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"hrsh7th/nvim-cmp",
-			"nvim-tree/nvim-web-devicons",
-			"zbirenbaum/copilot.lua",
-		},
-		opts = {
-			provider = "copilot",
-			auto_suggestions_provider = "copilot",
-
-			behaviour = {
-				auto_suggestions = false,
-				auto_set_highlight_group = true,
-				auto_set_keymaps = true,
-				auto_apply_diff_after_generation = false,
-				support_paste_from_clipboard = false,
-				minimize_diff = true,
-			},
-
-			windows = {
-				position = "right",
-				wrap = true,
-				width = 30,
-			},
-		},
-	},
+	-- {
+	-- 	"yetone/avante.nvim",
+	-- 	event = { "InsertEnter", "LspAttach" },
+	-- 	dependencies = {
+	-- 		"stevearc/dressing.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"hrsh7th/nvim-cmp",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 		"zbirenbaum/copilot.lua",
+	-- 	},
+	-- 	opts = {
+	-- 		provider = "copilot",
+	-- 		auto_suggestions_provider = "copilot",
 	--
+	-- 		behaviour = {
+	-- 			auto_suggestions = false,
+	-- 			auto_set_highlight_group = true,
+	-- 			auto_set_keymaps = true,
+	-- 			auto_apply_diff_after_generation = false,
+	-- 			support_paste_from_clipboard = false,
+	-- 			minimize_diff = true,
+	-- 		},
+	--
+	-- 		windows = {
+	-- 			position = "right",
+	-- 			wrap = true,
+	-- 			width = 30,
+	-- 		},
+	-- 	},
+	-- },
+	--
+	{
+		"ravitemer/mcphub.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		cmd = "MCPHub",
+		build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
+		config = function()
+			require("mcphub").setup({
+				use_bundled_binary = true,
+			})
+		end,
+	},
 	-- ref. https://github.com/nvim-pack/nvim-spectre
 	{
 		'nvim-pack/nvim-spectre',
@@ -137,25 +150,22 @@ return {
 	-- ref. https://github.com/akinsho/toggleterm.nvim
 	{
 		'akinsho/toggleterm.nvim',
-		keys = {
-			{ "<leader>l", "<cmd>lua _lazygit_toggle()<CR>",        desc = "open [L]azygit" },
-			{ "<leader>t", "<cmd>lua _float_terminal_toggle()<CR>", desc = "open [T]erminal" },
-		},
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
+			open_mapping = [[<leader>t]],
+			direction = "float",
 			autochdir = true,
 		},
-		config = function()
-			local Terminal = require("toggleterm.terminal").Terminal
-			local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", hidden = true })
-			local float_terminal = Terminal:new({ direction = "float", hidden = true })
-			function _lazygit_toggle()
-				lazygit:toggle()
-			end
-
-			function _float_terminal_toggle()
-				float_terminal:toggle()
-			end
-		end
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		cmd = {
+			"LazyGit",
+		},
+		keys = {
+			{ "<leader>l", "<cmd>LazyGit<CR>", desc = "open [L]azygit" },
+		}
 	},
 	{
 		"rcarriga/nvim-notify",
@@ -205,4 +215,14 @@ return {
 		dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
 		ft = { "markdown" }
 	},
+	{
+		"wintermute-cell/gitignore.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		keys = {
+			{ "<leader>gi", "<cmd>Gitignore<CR>", desc = "Generate .gitignore" },
+		},
+		config = function()
+			require("gitignore")
+		end,
+	}
 }

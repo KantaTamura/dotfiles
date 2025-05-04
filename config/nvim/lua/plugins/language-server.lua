@@ -135,6 +135,7 @@ return {
 				"clangd",
 				"texlab",
 				"nil_ls",
+				"biome",
 			})
 
 			lsp.set_sign_icons({
@@ -166,6 +167,7 @@ return {
 					["clangd"] = { "c", "c++" },
 					["texlab"] = { "tex" },
 					["nil_ls"] = { "nix" },
+					["biome"] = { "typescript" },
 				}
 			})
 
