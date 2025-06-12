@@ -153,6 +153,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			open_mapping = [[<leader>t]],
+			insert_mappings = false,
 			direction = "float",
 			autochdir = true,
 		},
