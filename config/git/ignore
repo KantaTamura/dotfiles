@@ -5,3 +5,10 @@
 # local directory
 # e.g. testdata.local
 *.local
+
+# Jetbrains IDE
+.idea
+
+# Clangd
+.cache/clangd
+compile_commands.json
