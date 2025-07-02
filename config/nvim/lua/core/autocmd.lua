@@ -11,3 +11,8 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 --         vim.lsp.buf.format { async = false }
 --     end
 -- })
+local ar_grp = vim.api.nvim_create_augroup("AutoRead", { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI", "TermClose", "TermLeave" },
+	{ group = ar_grp, command = "checktime" }
+)
