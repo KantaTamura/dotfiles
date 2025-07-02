@@ -26,6 +26,7 @@ return {
 						"texlab",
 						"nil_ls",
 						"biome",
+						"gh_actions_ls",
 					},
 				},
 			},
