@@ -225,5 +225,9 @@ return {
 		config = function()
 			require("gitignore")
 		end,
-	}
+	},
+	{
+		"lambdalisue/vim-suda",
+		event = { "BufReadPre", "BufNewFile" },
+	},
 }
