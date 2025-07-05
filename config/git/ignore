@@ -6,6 +6,9 @@
 # e.g. testdata.local
 *.local
 
+# environment variables
+.env
+
 # Jetbrains IDE
 .idea
 
