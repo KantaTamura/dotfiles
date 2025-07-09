@@ -11,8 +11,6 @@ setopt hist_ignore_dups
 setopt append_history
 setopt inc_append_history
 
-export cdpath=(~ ~/workspace)
-
 # no beep
 unsetopt beep
 
