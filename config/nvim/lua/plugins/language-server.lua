@@ -67,10 +67,10 @@ return {
 				local map = function(mode, lhs, rhs)
 					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
 				end
-				map("n", "K", vim.lsp.buf.hover)
-				map("n", "gd", vim.lsp.buf.definition)
-				map("n", "<leader>r", vim.lsp.buf.rename)
-				map("n", "ga", vim.lsp.buf.code_action)
+				-- map("n", "K", vim.lsp.buf.hover)
+				-- map("n", "gd", vim.lsp.buf.definition)
+				-- map("n", "<leader>r", vim.lsp.buf.rename)
+				-- map("n", "ga", vim.lsp.buf.code_action)
 			end
 
 			local servers = {
@@ -208,6 +208,10 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
 		config = function()
 			require("lspsaga").setup({
 				ui = {
@@ -225,6 +229,13 @@ return {
 					win_width = 50,
 					auto_preview = false,
 				},
+				definition = {
+					keys = {
+						edit = 'o',
+						vsplit = 'v',
+						spilit = 'i',
+					},
+				},
 			})
 
 			local keymap = vim.keymap.set
@@ -232,7 +243,7 @@ return {
 			-- If there is no definition, it will instead be hidden
 			-- When you use an action in finder like "open vsplit",
 			-- you can use <C-t> to jump back
-			keymap("n", "gh", "<cmd>Lspsaga finder<CR>")
+			keymap("n", "gf", "<cmd>Lspsaga finder<CR>")
 
 			keymap({ "n", "v" }, "ga", "<cmd>Lspsaga code_action<CR>")
 
@@ -242,6 +253,10 @@ return {
 			-- It also supports tagstack
 			-- Use <C-t> to jump back
 			keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
+			keymap("n", "<leader>gp", "<cmd>Lspsaga goto_definition<CR>")
+
+			keymap("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
+			keymap("n", "<leader>gt", "<cmd>Lspsaga goto_type_definition<CR>")
 
 			-- Go to definition
 			-- keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
@@ -274,8 +289,7 @@ return {
 			-- there is no information available.
 			-- To disable it just use ":Lspsaga hover_doc ++quiet"
 			-- Pressing the key twice will enter the hover window
-			keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-
+			-- keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 			-- If you want to keep the hover window in the top right hand corner,
 			-- you can pass the ++keep argument
 			-- Note that if you use hover with ++keep, pressing this key again will
@@ -288,6 +302,8 @@ return {
 			keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
 
 			-- keymap("n", "<Leader>t", "<cmd>Lspsaga term_toggle<CR>")
+			-- Rename
+			-- keymap("n", "<leader>r", "<cmd>Lspsaga lsp_rename ++project<CR>")
 		end,
 	},
 	{
