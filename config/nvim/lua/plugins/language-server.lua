@@ -69,7 +69,7 @@ return {
 				end
 				-- map("n", "K", vim.lsp.buf.hover)
 				-- map("n", "gd", vim.lsp.buf.definition)
-				-- map("n", "<leader>r", vim.lsp.buf.rename)
+				map("n", "<leader>r", vim.lsp.buf.rename)
 				-- map("n", "ga", vim.lsp.buf.code_action)
 			end
 

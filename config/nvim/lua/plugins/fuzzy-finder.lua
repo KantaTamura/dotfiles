@@ -101,6 +101,10 @@ return {
 			-- lsp picker
 			vim.keymap.set("n", "<leader>d", require("telescope.builtin").diagnostics,
 				{ desc = "[S]earch [D]iagnostics" })
+			vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references,
+				{ desc = "LSP references" })
+			vim.keymap.set("n", "hs", require("telescope.builtin").lsp_workspace_symbols,
+				{ desc = "LSP workspace symbols" })
 			-- extensions
 			vim.keymap.set("n", "<leader>f", require("telescope").extensions.file_browser.file_browser,
 				{ desc = "file [F]inder" })

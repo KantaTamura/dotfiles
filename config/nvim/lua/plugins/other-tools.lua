@@ -230,4 +230,14 @@ return {
 		"lambdalisue/vim-suda",
 		event = { "BufReadPre", "BufNewFile" },
 	},
+	{
+		'beeender/richclip.nvim',
+		event = { "BufReadPre", "BufNewFile" },
+		config = function() 
+			require("richclip").setup({
+				set_g_clipboard = false,
+			}) 
+			vim.keymap.set({ 'v' }, '<Leader>rc', ":'<,'>RichClip copy<CR>", { desc = 'RichClip copy (HTML)' })
+		end,
+	},
 }
