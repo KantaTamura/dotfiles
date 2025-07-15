@@ -152,11 +152,16 @@ return {
 		'akinsho/toggleterm.nvim',
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
-			open_mapping = [[<leader>t]],
 			insert_mappings = false,
 			direction = "float",
 			autochdir = true,
 		},
+		config = function(_, opts)
+			require("toggleterm").setup(opts)
+			-- keymaps
+			vim.keymap.set("n", "<C-;>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+			vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+		end,
 	},
 	{
 		"kdheepak/lazygit.nvim",
