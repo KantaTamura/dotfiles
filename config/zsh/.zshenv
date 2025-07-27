@@ -48,6 +48,9 @@ export LESSHISTFILE=$XDG_STATE_HOME/less/history
 # cuda
 export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
 
+# jupyter lab
+export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter
+
 # path
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$PNPM_HOME:$PATH
