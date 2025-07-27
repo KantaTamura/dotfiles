@@ -1,0 +1,18 @@
+[Unit]
+Description=JupyterLab
+After=network.target
+
+[Service]
+Type=simple
+Environment="JUPYTER_CONFIG_DIR=%h/.config/jupyter"
+ExecStart=%h/workspace/notebook/.venv/bin/jupyter lab \
+	--ip=0.0.0.0 \
+	--port=8888 \
+	--no-browser \
+	--IdentityProvider.token="" \
+	--notebook-dir=%h/workspace/notebook/src
+
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
