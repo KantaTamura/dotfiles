@@ -1,67 +1,84 @@
--- line
---  行番号を表示し相対表示する
---  signcolumnを常に表示する
-vim.opt.number         = true
-vim.opt.relativenumber = true
-vim.opt.signcolumn     = 'yes'
+local options = {
+	-- line
+	number         = true,
+	relativenumber = true,
+	signcolumn     = "yes",
 
--- backup
---  バックアップファイルを作成しない
---  アンドゥファイルを作成する
-vim.opt.backup         = false
-vim.opt.swapfile       = false
-vim.opt.undofile       = true
+	-- backup/undo
+	backup         = false,
+	swapfile       = false,
+	undofile       = true,
+	undodir        = vim.fn.stdpath("state") .. "/undo",
 
--- search
---  検索時にすぐに対象に移動し，ハイライトする
---  検索時に大文字小文字を区別しないが，大文字が含まれている場合は区別する
-vim.opt.incsearch      = true
-vim.opt.hlsearch       = true
-vim.opt.ignorecase     = true
-vim.opt.smartcase      = true
+	-- search
+	incsearch      = true,
+	hlsearch       = true,
+	ignorecase     = true,
+	smartcase      = true,
+	inccommand     = "nosplit",
 
--- clipboard
---  neovimのclipboardをシステムのclipboardと同期する
-vim.opt.clipboard      = 'unnamedplus'
+	-- clipboard
+	clipboard      = "unnamedplus",
 
--- mouse
---  マウスを有効にする
-vim.opt.mouse          = 'a'
+	-- mouse
+	mouse          = "a",
 
--- color
---  true colorを有効にする
-vim.opt.termguicolors  = true
+	-- color
+	termguicolors  = true,
 
--- time
---  タイムアウトを設定する
-vim.opt.updatetime     = 250
-vim.opt.timeout        = true
-vim.opt.timeoutlen     = 300
+	-- performance
+	updatetime     = 250,
+	timeout        = true,
+	timeoutlen     = 300,
+	lazyredraw     = true,
+	redrawtime     = 1500,
 
--- indent
-vim.opt.autoindent     = true
-vim.opt.breakindent    = true
+	-- indent/tab
+	autoindent     = true,
+	breakindent    = true,
+	expandtab      = false,
+	tabstop        = 4,
+	shiftwidth     = 4,
 
--- tab
-vim.opt.expandtab      = false
-vim.opt.tabstop        = 4
-vim.opt.shiftwidth     = 4
+	-- vim doc
+	helplang       = { "ja", "en" },
 
--- vim doc
-vim.opt.helplang       = "ja,en"
+	-- file
+	autoread       = true,
+	hidden         = true,
 
--- file
---  ファイルが外部で変更された場合に自動で読み込む
-vim.opt.autoread       = true
+	-- statusline
+	laststatus     = 2,
 
--- statusline
---  ステータスラインを常に表示する
-vim.opt.laststatus     = 2
+	-- completion
+	completeopt    = { "menuone", "noinsert", "noselect" },
 
--- complete
---  補完メニューを表示し，挿入を行わない
-vim.opt.completeopt    = { 'menuone', 'noinsert' }
+	-- split
+	splitright     = true,
 
--- split
---  分割したウィンドウを右側に表示する
-vim.opt.splitright     = true
+	-- UI
+	cursorline     = true,
+	scrolloff      = 8,
+	sidescrolloff  = 8,
+	wrap           = false,
+	list           = true,
+	listchars      = {
+		tab      = "  ",
+		trail    = "•",
+		extends  = "",
+		precedes = "",
+		eol      = " ",
+		nbsp     = "␣",
+	},
+}
+
+for key, value in pairs(options) do
+	vim.opt[key] = value
+end
+
+pcall(function() vim.opt.shortmess:append("c") end)
+
+local undodir = vim.opt.undodir:get()[1]
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
+end

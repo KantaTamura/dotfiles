@@ -1,4 +1,3 @@
--- install package manager : lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -6,15 +5,20 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
-local lazyOpts = {
+local lazy_opts = {
 	defaults = {
 		lazy = true,
+	},
+	checker = {
+		enabled = true,
+		notify = true,
+		frequency = 24,
 	},
 	performance = {
 		cache = {
@@ -26,5 +30,4 @@ local lazyOpts = {
 	},
 }
 
--- install plugins from "nvim/lua/plugins"
-require('lazy').setup("plugins", lazyOpts)
+require("lazy").setup("plugins", lazy_opts)
