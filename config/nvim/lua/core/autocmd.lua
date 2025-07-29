@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     -- <Leader>h で「強調ハイライトを付けて保持」
-    map('<leader>lh', function()
+    map('<leader>hl', function()
       vim.b.doc_highlight_persistent = false
       vim.lsp.buf.clear_references()
       vim.b.doc_highlight_persistent = true
@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, 'LSP: 強調ハイライト開始')
 
     -- <Leader>H で解除して通常色に戻す
-    map('<leader>lH', function()
+    map('<leader>Hl', function()
       vim.b.doc_highlight_persistent = false
       vim.lsp.buf.clear_references()
       set_normal_hl()
