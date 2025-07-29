@@ -67,6 +67,10 @@ return {
 				local map = function(mode, lhs, rhs)
 					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
 				end
+
+				map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end,
+					"LSP: [F]ormat buffer")
+
 				-- map("n", "K", vim.lsp.buf.hover)
 				-- map("n", "gd", vim.lsp.buf.definition)
 				map("n", "<leader>r", vim.lsp.buf.rename)

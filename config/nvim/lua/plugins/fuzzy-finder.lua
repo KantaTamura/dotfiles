@@ -94,20 +94,20 @@ return {
 			vim.keymap.set("n", "<leader>g", require("telescope.builtin").live_grep, { desc = "search by [G]rep" })
 			-- vim pickers
 			vim.keymap.set("n", "<leader>b", require("telescope.builtin").buffers, { desc = "Find existing [B]uffers" })
-			vim.keymap.set("n", "<leader>h", require("telescope.builtin").help_tags, { desc = "search [H]elp" })
+			vim.keymap.set("n", "<leader>hp", require("telescope.builtin").help_tags, { desc = "search [H]elp" })
 			vim.keymap.set("n", "<leader>mp", require("telescope.builtin").man_pages, { desc = "search [M]an [P]ages" })
 			vim.keymap.set("n", "<leader>m", require("telescope.builtin").marks, { desc = "search by [M]arks" })
 			vim.keymap.set("n", "<leader>k", require("telescope.builtin").keymaps, { desc = "search [K]eymaps" })
 			-- lsp picker
 			vim.keymap.set("n", "<leader>d", require("telescope.builtin").diagnostics,
 				{ desc = "[S]earch [D]iagnostics" })
-			vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references,
+			vim.keymap.set("n", "<leader>gr", require("telescope.builtin").lsp_references,
 				{ desc = "LSP references" })
-			vim.keymap.set("n", "hs", require("telescope.builtin").lsp_workspace_symbols,
+			vim.keymap.set("n", "<leader>hs", require("telescope.builtin").lsp_workspace_symbols,
 				{ desc = "LSP workspace symbols" })
 			-- extensions
-			vim.keymap.set("n", "<leader>f", require("telescope").extensions.file_browser.file_browser,
-				{ desc = "file [F]inder" })
+			-- vim.keymap.set("n", "<leader>f", require("telescope").extensions.file_browser.file_browser,
+			-- 	{ desc = "file [F]inder" })
 			vim.keymap.set("n", "<leader>mf", require("telescope").extensions.media_files.media_files,
 				{ desc = "search [M]edia [F]iles" })
 			vim.keymap.set("n", "<leader>p", require("telescope").extensions.project.project,

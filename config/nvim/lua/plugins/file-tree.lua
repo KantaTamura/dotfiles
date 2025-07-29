@@ -1,6 +1,6 @@
 return {
-	event = "VimEnter",
 	"nvim-tree/nvim-tree.lua",
+	event = "VimEnter",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -9,13 +9,17 @@ return {
 
 		-- configure nvim-tree
 		nvimtree.setup({
+			hijack_cursor = true,
+			sort_by = "case_sensitive",
 			view = {
 				width = 38,
+				signcolumn = "yes",
 				relativenumber = false,
 			},
 			-- change folder arrow icons
 			renderer = {
 				highlight_git = true,
+				highlight_modified = "name",
 				highlight_opened_files = "name",
 				icons = {
 					glyphs = {
@@ -92,6 +96,25 @@ return {
 					vim.cmd("quit")
 				end
 			end,
+		})
+
+		local function open_nvim_tree_on_start(data)
+			local is_dir = vim.fn.isdirectory(data.file) == 1
+			local is_empty = data.file == "" and vim.bo[data.buf].buftype == ""
+
+			if not (is_dir or is_empty) then
+				return
+			end
+
+			if is_dir then
+				vim.cmd.cd(data.file)
+			end
+
+			require("nvim-tree.api").tree.open({ focus = true })
+		end
+
+		vim.api.nvim_create_autocmd("VimEnter", {
+			callback = open_nvim_tree_on_start,
 		})
 	end,
 }
