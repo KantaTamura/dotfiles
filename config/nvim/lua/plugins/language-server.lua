@@ -93,7 +93,7 @@ return {
 				rust_analyzer = {
 					on_attach = function(client, bufnr)
 						on_attach(client, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+						-- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 					end,
 					settings = {
 						["rust_analyzer"] = {
@@ -143,6 +143,7 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-cmdline",
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"zbirenbaum/copilot.lua",

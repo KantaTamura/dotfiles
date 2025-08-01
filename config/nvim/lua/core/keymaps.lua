@@ -35,10 +35,10 @@ vim.keymap.set({ "n" }, "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "De
 vim.keymap.set({ "n", "x", "o" }, "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 vim.keymap.set({ "n", "x", "o" }, "N", "'nN'[v:searchforward]", { expr = true, desc = "Previous search result" })
 
--- open lazy
-vim.keymap.set({ "n" }, "<leader>l", function()
-	return require("lazy").home()
-end, { desc = "Open lazy" })
+-- -- open lazy
+-- vim.keymap.set({ "n" }, "<leader>l", function()
+-- 	return require("lazy").home()
+-- end, { desc = "Open lazy" })
 
 -- format
 vim.keymap.set({ "n" }, "<leader>f", "<cmd>lua vim.lsp.buf.format { async = false }<CR>",

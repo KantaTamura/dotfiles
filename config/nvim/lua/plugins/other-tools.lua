@@ -164,16 +164,6 @@ return {
 		end,
 	},
 	{
-		"kdheepak/lazygit.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		cmd = {
-			"LazyGit",
-		},
-		keys = {
-			{ "<leader>l", "<cmd>LazyGit<CR>", desc = "open [L]azygit" },
-		}
-	},
-	{
 		"rcarriga/nvim-notify",
 		event = { "VeryLazy" },
 		dependencies = { "nvim-lua/plenary.nvim" },

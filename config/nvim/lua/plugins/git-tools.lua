@@ -1,43 +1,24 @@
 return {
-	--
-	-- ref. https://github.com/tpope/vim-fugitive
 	{
 		"tpope/vim-fugitive",
 		event = { "BufReadPre", "BufNewFile" },
-		cond = function()
-			return not vim.g.vscode
-		end,
-		-- event = "VeryLazy",
 		keys = {
 			{ "git", mode = "c", "<cmd>Git<cr>", desc = "OpenGit" },
 		},
-		dependencies =
-		{
-			"tpope/vim-rhubarb",
-		},
+		dependencies = { "tpope/vim-rhubarb" },
 	},
-	--
-	-- ref. https://github.com/sindrets/diffview.nvim
 	{
 		"sindrets/diffview.nvim",
-		cmd = {
-			"DiffviewOpen"
-		},
+		cmd = { "DiffviewOpen" },
 		opts = {
 			default_args = {
 				DiffviewOpen = { "--imply-local" },
 			}
 		},
 	},
-	--
-	-- ref. https://github.com/lewis6991/gitsigns.nvim
 	{
-		-- Adds git releated signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		cond = function()
-			return not vim.g.vscode
-		end,
 		opts = {
 			-- See `:help gitsigns.txt`
 			signs = {
@@ -49,5 +30,14 @@ return {
 				untracked    = { text = "┆" },
 			},
 		},
-	}
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "LazyGit" },
+		keys = {
+			{ "<leader>l", mode = "n", "<cmd>LazyGit<CR>", desc = "open [L]azygit" },
+		}
+	},
 }

@@ -30,7 +30,6 @@ local options = {
 	updatetime     = 250,
 	timeout        = true,
 	timeoutlen     = 300,
-	lazyredraw     = true,
 	redrawtime     = 1500,
 
 	-- indent/tab

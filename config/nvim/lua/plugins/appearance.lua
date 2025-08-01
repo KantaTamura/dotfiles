@@ -50,9 +50,6 @@ return {
 	-- ┌──────────────────────────────────────────────────┐
 	-- │  start menu                                      │
 	-- └──────────────────────────────────────────────────┘
-
-	-- alpha
-	-- ref. https://github.com/goolord/alpha-nvim
 	{
 		"goolord/alpha-nvim",
 		event = "VimEnter",
@@ -159,13 +156,9 @@ return {
 			})
 		end
 	},
-
 	-- ┌──────────────────────────────────────────────────┐
 	-- │  tab, buffer line                                │
 	-- └──────────────────────────────────────────────────┘
-
-	-- bufferline
-	-- ref. https://github.com/akinsho/bufferline.nvim
 	{
 		"akinsho/bufferline.nvim",
 		dependencies = {
@@ -194,13 +187,9 @@ return {
 			}
 		end,
 	},
-
 	-- ┌──────────────────────────────────────────────────┐
 	-- │  status line                                     │
 	-- └──────────────────────────────────────────────────┘
-
-	-- lualine
-	-- ref. https://github.com/nvim-lualine/lualine.nvim
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
@@ -405,13 +394,9 @@ return {
 			lualine.setup(config)
 		end
 	},
-
 	-- ┌──────────────────────────────────────────────────┐
 	-- │  color scheme                                    │
 	-- └──────────────────────────────────────────────────┘
-
-	-- iceberg
-	-- ref. https://github.com/cocopon/iceberg.vim
 	{
 		"cocopon/iceberg.vim",
 		event = "VimEnter",
@@ -420,8 +405,6 @@ return {
 			vim.cmd.colorscheme("iceberg")
 		end,
 	},
-	-- iceberg-tokyo
-	-- ref. https://codeberg.org/miyakogi/iceberg-tokyo.nvim
 	{
 		url = "https://codeberg.org/miyakogi/iceberg-tokyo.nvim",
 		event = "VimEnter",
@@ -430,8 +413,6 @@ return {
 			vim.cmd.colorscheme("iceberg-tokyo")
 		end,
 	},
-	-- tokyonight
-	-- ref. https://github.com/folke/tokyonight.nvim
 	{
 		"folke/tokyonight.nvim",
 		event = "VimEnter",
@@ -443,8 +424,6 @@ return {
 			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
-	-- catpuccin
-	-- ref. https://github.com/catppuccin/nvim
 	{
 		"catppuccin/nvim",
 		event = "VimEnter",
