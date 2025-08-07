@@ -228,11 +228,20 @@ return {
 	{
 		'beeender/richclip.nvim',
 		event = { "BufReadPre", "BufNewFile" },
-		config = function() 
+		config = function()
 			require("richclip").setup({
 				set_g_clipboard = false,
-			}) 
+			})
 			vim.keymap.set({ 'v' }, '<Leader>rc', ":'<,'>RichClip copy<CR>", { desc = 'RichClip copy (HTML)' })
+		end,
+	},
+	{
+		"ellisonleao/dotenv.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("dotenv").setup({
+				enable_on_load = true,
+			})
 		end,
 	},
 }

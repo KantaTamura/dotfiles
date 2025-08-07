@@ -55,6 +55,7 @@ return {
 						"markdownlint-cli2",
 						"textlint",
 						"cspell",
+						"kdlfmt",
 					},
 				}
 			},
@@ -144,6 +145,7 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lua",
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"zbirenbaum/copilot.lua",
@@ -181,6 +183,7 @@ return {
 					{ name = "nvim_lsp", group_index = 2 },
 					{ name = "luasnip",  group_index = 2 },
 					{ name = "path",     group_index = 2 },
+					{ name = "nvim_lua", group_index = 2 },
 				},
 				completion = {
 					completeopt = "menu,menuone,preview,noselect"
@@ -286,7 +289,7 @@ return {
 			keymap("n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
 			-- Toggle outline
-			keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+			keymap("n", "<leader>ou", "<cmd>Lspsaga outline<CR>")
 
 			-- Hover Doc
 			-- If there is no hover doc,
