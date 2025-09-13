@@ -14,6 +14,7 @@ return {
 				"williamboman/mason-lspconfig.nvim",
 				opts = {
 					automatic_installation = true,
+					automatic_enable = false,
 					ensure_installed = {
 						"gopls",
 						"marksman",
@@ -94,7 +95,7 @@ return {
 				rust_analyzer = {
 					on_attach = function(client, bufnr)
 						on_attach(client, bufnr)
-						-- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 					end,
 					settings = {
 						["rust_analyzer"] = {
@@ -108,6 +109,9 @@ return {
 								command = "clippy",
 								extraArgs = { "--all", "--", "-W", "clippy::all" },
 							},
+							files = {
+								excludeDirs = { "target", ".git" },
+							},
 						},
 					}
 				},
@@ -116,7 +120,12 @@ return {
 				zls = {},
 				graphql = {},
 				ruff = {},
-				clangd = {},
+				clangd = {
+					cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu" },
+					init_options = {
+						fallbackFlags = { "-std=c++20" },
+					},
+				},
 				texlab = {},
 				nil_ls = {
 					settings = {
