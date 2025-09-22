@@ -62,7 +62,6 @@ return {
 			},
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local on_attach = function(_, bufnr)
@@ -140,9 +139,13 @@ return {
 			}
 
 			for name, opts in pairs(servers) do
-				opts.capabilities = capabilities
-				opts.on_attach = opts.on_attach or on_attach
-				lspconfig[name].setup(opts)
+				local cfg = vim.tbl_deep_extend("force", {
+					on_attach = on_attach,
+					capabilities = capabilities,
+				}, opts or {})
+
+				vim.lsp.config(name, cfg)
+				vim.lsp.enable(name)
 			end
 		end
 	},
