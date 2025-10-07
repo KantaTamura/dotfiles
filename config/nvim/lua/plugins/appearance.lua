@@ -174,7 +174,7 @@ return {
 			vim.keymap.set("n", "<leader>cl", "<Cmd>BufferLineCloseLeft<CR>", {})
 			local bufferline = require("bufferline")
 			require("bufferline").setup {
-				highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
+				highlights = require("catppuccin.special.bufferline").get_theme(),
 				options = {
 					-- mode = "tabs",
 					style_preset = bufferline.style_preset.minimal,
