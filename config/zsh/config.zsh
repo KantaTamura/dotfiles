@@ -64,6 +64,11 @@ fi
 # history per directory
 source $XDG_CONFIG_HOME/zsh/cwd_history.zsh
 
+# load user dirs
+if [[ -f $XDG_CONFIG_HOME/user-dirs.dirs ]]; then
+	source $XDG_CONFIG_HOME/user-dirs.dirs
+fi
+
 # fix duplicate PATH
 typeset -U path
 export PATH
