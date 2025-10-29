@@ -84,12 +84,13 @@ style  = "bold underline purple"
 format = "[](fg:base bg:none)[$symbol$branch(:$remote_branch)](fg:$style bg:base)[](fg:base bg:none) "
 
 [fill]
+disabled = true
 symbol = " "
 
 [cmd_duration]
 style  = "white"
 format = "[](fg:base bg:none)[ $duration](fg:$style bg:base)[](fg:base bg:none) "
-min_time = 1
+min_time = 0
 
 [nix_shell]
 style  = "bold green"
