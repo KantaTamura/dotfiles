@@ -4,6 +4,9 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
 
+# zsh dotenv
+export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
+
 # screenshots
 export HYPRSHOT_DIR=$HOME/screenshots
 
