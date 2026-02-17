@@ -36,7 +36,16 @@ apply = ["defer"]
 github = 'larkery/zsh-histdb'
 apply = ["defer"]
 
+[plugins.zsh-histdb-fzf]
+github = "m42e/zsh-histdb-fzf"
+apply = ["defer"]
+
 [plugins.fancy-ctrl-z]
 github = "mdumitru/fancy-ctrl-z"
 use = ["fancy-ctrl-z.zsh"]
+apply = ["defer"]
+
+[plugins.ohmyzsh-dotenv]
+github = "ohmyzsh/ohmyzsh"
+use = ["plugins/dotenv/dotenv.plugin.zsh"]
 apply = ["defer"]
